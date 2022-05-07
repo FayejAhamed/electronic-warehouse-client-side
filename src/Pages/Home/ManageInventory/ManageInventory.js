@@ -8,7 +8,27 @@ const ManageInventory = () => {
             .then(data => {
                 setProducts(data)
             })
-    }, [])
+    }, []);
+    
+    
+    const handleUserDelete = id =>{
+        const proceed = window.confirm('Are you sure you want to delete?');
+        if(proceed){
+            console.log('deleting user with id, ', id);
+            const url = `http://localhost:5000/update/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data =>{
+                if(data.deletedCount > 0){
+                    console.log('deleted');
+                    const remaining = products.filter(product => product._id !== id);
+                    setProducts(remaining);
+                }
+            })
+        }
+    }
     return (
         <div>
         <h2>items: {products.length}</h2>
@@ -20,7 +40,7 @@ const ManageInventory = () => {
                 <h5>{product.supplierName}</h5>
                 <p>{product.price}</p>
                 <p>{product.description}</p>
-                <button >Delete</button>
+                <button onClick={() => handleUserDelete(product._id)} >Delete</button>
             </div>)
         }
         </div>
