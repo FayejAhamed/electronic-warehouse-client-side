@@ -7,12 +7,12 @@ import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
 import { ToastContainer } from 'react-toastify';
 import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
-import Inventory from './Pages/Inventory/Inventory';
 import Footer from './Pages/Shared/Footer/Footer';
 import NotFound from './Pages/Shared/NotFound/NotFound';
 import InventoryItems from './Pages/InventoryItems/InventoryItems';
 import Update from './Pages/Home/Update/Update';
 import ManageInventory from './Pages/Home/ManageInventory/ManageInventory';
+import AddNewItem from './Pages/Home/AddNewItem/AddNewItem';
 
 function App() {
   return (
@@ -33,9 +33,10 @@ function App() {
             <ManageInventory></ManageInventory>
           </RequireAuth>
         }></Route>
-        <Route path='/inventory' element={
+
+        <Route path='/addnew' element={
           <RequireAuth>
-            <Inventory></Inventory>
+            <AddNewItem></AddNewItem>
           </RequireAuth>
         }></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>

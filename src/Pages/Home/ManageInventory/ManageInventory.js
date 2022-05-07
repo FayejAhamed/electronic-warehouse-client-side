@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const ManageInventory = () => {
     const [products, setProducts] = useState([]);
@@ -44,6 +45,8 @@ const ManageInventory = () => {
             </div>)
         }
         </div>
+        <Link to='/addnew'> <button>Add new item</button></Link>
+
     </div>
     );
 };
