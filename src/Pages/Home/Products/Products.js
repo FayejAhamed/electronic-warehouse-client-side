@@ -13,7 +13,7 @@ const Products = ({ product }) => {
     // console.log(product.picture);
     return (
         <div className='products mb-3 bg-success pb-5 rounded-3 text-center text-white'>
-            <img className='w-100' style={{width:'40px'}} src={product.picture} alt="" />
+            <img className='w-100' style={{width:'40px'}} src={picture} alt="" />
             <h4 className='mt-5'> {name}</h4>
             <p>Supplier: {supplierName}</p>
             <h5>price: ${price}</h5>
