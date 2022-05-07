@@ -18,9 +18,7 @@ const Update = () => {
   
    const handleDelivery = event =>{
        const quantity= updateProduct.quantity -  1;
-       console.log(quantity);
        const sold = updateProduct.sold + 1;
-       console.log(sold);
       const user = {quantity, sold};
 
       //send data in server for update qauntity
@@ -41,6 +39,29 @@ const Update = () => {
     
 
    }
+   // send data to server to update the restock quantity
+   const handleIncreaseQuantity = event =>{
+    event.preventDefault();
+    const quantity =parseInt(event.target.number.value) + parseInt(updateProduct.quantity) ;
+    // console.log(restock);
+    const user = {quantity};
+
+    fetch(`http://localhost:5000/restock/${productId}`,{
+        method: 'PUT',
+        headers:{
+            'content-type' : 'application/json',
+        },
+        body: JSON.stringify(user),
+    })
+    .then(response => response.json())
+    .then(data =>{
+
+    })
+    .catch((error)=>{
+        console.error('Error:', error)
+    })
+
+   }
 
 
 
@@ -56,6 +77,12 @@ const Update = () => {
             <p>Quantity: {updateProduct?.quantity}</p>
             <p>sold: {updateProduct?.sold}</p>
             <button onClick={()=>handleDelivery()}>Delivery</button>
+            <form onSubmit={handleIncreaseQuantity}>
+                <input type="number" name="number" placeholder='add more' required />
+                <br />
+               
+                <input type="submit" value="Restock" />
+            </form>
            
             
         </Card>
