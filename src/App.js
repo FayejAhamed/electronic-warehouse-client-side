@@ -10,6 +10,8 @@ import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
 import Inventory from './Pages/Inventory/Inventory';
 import Footer from './Pages/Shared/Footer/Footer';
 import NotFound from './Pages/Shared/NotFound/NotFound';
+import InventoryItems from './Pages/InventoryItems/InventoryItems';
+import Update from './Pages/Home/Update/Update';
 
 function App() {
   return (
@@ -17,8 +19,15 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/home' element={<Home></Home>}></Route>
+        <Route path='/update/:productId' element={
+       <RequireAuth>
+          <Update></Update>
+       </RequireAuth>
+        }></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
+        <Route path='/inventoryitems' element={<InventoryItems></InventoryItems>}></Route>
         <Route path='/inventory' element={
           <RequireAuth>
             <Inventory></Inventory>
