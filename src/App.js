@@ -12,6 +12,7 @@ import Footer from './Pages/Shared/Footer/Footer';
 import NotFound from './Pages/Shared/NotFound/NotFound';
 import InventoryItems from './Pages/InventoryItems/InventoryItems';
 import Update from './Pages/Home/Update/Update';
+import ManageInventory from './Pages/Home/ManageInventory/ManageInventory';
 
 function App() {
   return (
@@ -27,7 +28,11 @@ function App() {
         }></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
-        <Route path='/inventoryitems' element={<InventoryItems></InventoryItems>}></Route>
+        <Route path='/manage' element={
+          <RequireAuth>
+            <ManageInventory></ManageInventory>
+          </RequireAuth>
+        }></Route>
         <Route path='/inventory' element={
           <RequireAuth>
             <Inventory></Inventory>

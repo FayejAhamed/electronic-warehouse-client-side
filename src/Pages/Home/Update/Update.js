@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Card } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import useUpdateProduct from '../../../hooks/useUpdateProduct';
 
 const Update = () => {
@@ -83,6 +83,7 @@ const Update = () => {
                
                 <input type="submit" value="Restock" />
             </form>
+            <Link to='/manage'> <button> Manage Inventories</button></Link>
            
             
         </Card>
