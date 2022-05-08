@@ -1,10 +1,9 @@
 import React from 'react';
-import { Col, Row } from 'react-bootstrap';
 import warehouse from '../../../images/bestDeals/warehouse.png'
 
 const BestDeals = () => {
     return (
-        <div className='container mt-5 rounded-3'>
+        <div className='container py-5 rounded-3'>
             <h1 className='text-center my-5 text-black'>Get Our Best Deals</h1>
             <div className='row'>
                 <div className="col-lg-6 col-md-6 text-center shadow-sm bg-info text-white">

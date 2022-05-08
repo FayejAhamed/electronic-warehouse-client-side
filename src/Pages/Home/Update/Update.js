@@ -11,7 +11,7 @@ const Update = () => {
 
 
    useEffect(()=>{
-    fetch(`http://localhost:5000/update/${productId}`)
+    fetch(`https://pacific-taiga-87082.herokuapp.com/update/${productId}`)
     .then(res=>res.json())
     .then(data=>setUpdateProduct(data))
 },[updateProduct])
@@ -22,7 +22,7 @@ const Update = () => {
       const user = {quantity, sold};
 
       //send data in server for update qauntity
-      fetch(`http://localhost:5000/quantity/${productId}`,{
+      fetch(`https://pacific-taiga-87082.herokuapp.com/quantity/${productId}`,{
           method: 'PUT',
           headers:{
               'content-type' : 'application/json',
@@ -46,7 +46,7 @@ const Update = () => {
     // console.log(restock);
     const user = {quantity};
 
-    fetch(`http://localhost:5000/restock/${productId}`,{
+    fetch(`https://pacific-taiga-87082.herokuapp.com/restock/${productId}`,{
         method: 'PUT',
         headers:{
             'content-type' : 'application/json',

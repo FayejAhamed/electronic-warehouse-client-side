@@ -7,7 +7,7 @@ import './MangeInventory.css'
 const ManageInventory = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/inventoryitems')
+        fetch('https://pacific-taiga-87082.herokuapp.com/inventoryitems')
             .then(res => res.json())
             .then(data => {
                 setProducts(data)
@@ -19,7 +19,7 @@ const ManageInventory = () => {
         const proceed = window.confirm('Are you sure you want to delete?');
         if(proceed){
             console.log('deleting user with id, ', id);
-            const url = `http://localhost:5000/update/${id}`;
+            const url = `https://pacific-taiga-87082.herokuapp.com/update/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

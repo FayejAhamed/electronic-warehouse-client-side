@@ -4,7 +4,7 @@
 // const useUpdateProduct = productId => {
 //     const [updateProduct, setUpdateProduct] = useState({});
 //     useEffect(() => {
-//         const url = `http://localhost:5000/inventoryitems`
+//         const url = `https://pacific-taiga-87082.herokuapp.com/inventoryitems`
 //         fetch(url)
 //             .then(res => res.json())
 //             .then(data => setUpdateProduct(data))

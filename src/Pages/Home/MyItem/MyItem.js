@@ -5,18 +5,21 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import axiosPrivate from '../../../api/axiosPrivate';
 import auth from '../../../firebase.init';
+import Loading from '../../Shared/Loading/Loading';
 
 const MyItem = () => {
     const [users, setUsers] = useState();
    
     // const [Refresh, setRefresh] =React.useState(false)
-    const [user ]= useAuthState(auth)
+    const [user ,loading ]= useAuthState(auth)
     const [products, setProducts] = useState([]);
     const navigate = useNavigate();
-
+if(loading){
+     <Loading></Loading>
+}
    
     useEffect( () =>{
-        fetch('http://localhost:5000/myorder')
+        fetch('https://pacific-taiga-87082.herokuapp.com/myorder')
         .then(res => res.json())
         .then(data => setUsers(data));
     }, [users]);
@@ -25,7 +28,7 @@ const MyItem = () => {
         const proceed = window.confirm('Are you sure you want to delete?');
         if(proceed){
             console.log('deleting user with id, ', id);
-            const url = `http://localhost:5000/myorder/${id}`;
+            const url = `https://pacific-taiga-87082.herokuapp.com/myorder/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -44,7 +47,7 @@ const MyItem = () => {
     useEffect(() => {
         const getOrders = async () => {
             const email = user?.email
-            const url = `http://localhost:5000/order?email=${email}`
+            const url = `https://pacific-taiga-87082.herokuapp.com/order?email=${email}`
             try {
                 const { data } = await axiosPrivate.get(url);
                 setProducts(data)
@@ -62,7 +65,7 @@ const MyItem = () => {
 
     }, [user])
     // useEffect(() => {
-    //     fetch('http://localhost:5000/inventoryitems')
+    //     fetch('https://pacific-taiga-87082.herokuapp.com/inventoryitems')
     //         .then(res => res.json())
     //         .then(data => {
     //             setProducts(data)

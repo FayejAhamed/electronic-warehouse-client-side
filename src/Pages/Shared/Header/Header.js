@@ -9,7 +9,7 @@ const Header = () => {
   const [user, loading, error] = useAuthState(auth);
   const handleSignOut = () => {
     signOut(auth);
-    console.log('me')
+    // console.log('me')
   }
   return (
     <div  className="sticky-top">
