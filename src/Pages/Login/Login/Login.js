@@ -52,7 +52,7 @@ const Login = () => {
         const password = passwordRef.current.value;
 
         await signInWithEmailAndPassword(email, password);
-        console.log(user);
+        // console.log(user);
 
     }
     const handleReset = async () => {

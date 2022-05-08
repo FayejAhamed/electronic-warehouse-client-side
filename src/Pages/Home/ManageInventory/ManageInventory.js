@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import MyItem from '../MyItem/MyItem';
 import './MangeInventory.css'
 
 const ManageInventory = () => {
@@ -48,7 +49,9 @@ const ManageInventory = () => {
                 </div>
            )
         }
+       
         </div>
+        <MyItem></MyItem>
         <Link to='/addnew'> <Button className="fixed-bottom mx-5 fs-5 w-25 d-block mx-auto" variant="success ">Add new item</Button></Link>
 
     </div>

@@ -7,22 +7,25 @@ import axiosPrivate from '../../../api/axiosPrivate';
 import auth from '../../../firebase.init';
 
 const MyItem = () => {
+    const [users, setUsers] = useState();
+   
+    // const [Refresh, setRefresh] =React.useState(false)
     const [user ]= useAuthState(auth)
     const [products, setProducts] = useState([]);
     const navigate = useNavigate();
 
-    const [users, setUsers] = useState([]);
+   
     useEffect( () =>{
-        fetch('http://localhost:5000/order')
+        fetch('http://localhost:5000/myorder')
         .then(res => res.json())
         .then(data => setUsers(data));
-    }, []);
+    }, [users]);
 
     const handleUserDelete = id =>{
         const proceed = window.confirm('Are you sure you want to delete?');
         if(proceed){
             console.log('deleting user with id, ', id);
-            const url = `http://localhost:5000/order/${id}`;
+            const url = `http://localhost:5000/myorder/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -67,9 +70,7 @@ const MyItem = () => {
     // }, []);
    
     return (
-        <div>
-            <h2>My item page</h2>
-            <h2>your order: {products.length}</h2>
+        <div className='manage-container' >
             {
             products.map(product =>
                 <div key={product._id} className='products mb-3 pb-5 rounded-3 text-center shadow-sm'>
@@ -78,7 +79,7 @@ const MyItem = () => {
                 <h5>{product.supplierName}</h5>
                 <h5>Price: ${product.price}</h5>
                 <p>{product.description}</p>
-                <button onClick={()=>handleUserDelete(product._id)}>delete</button>
+                <button className='btn btn-danger px-4'  onClick={()=>handleUserDelete(product._id , window.location.reload(false))}>Delete Item</button>
                 {/* <Button  variant="danger " onClick={() => handleUserDelete(product._id)} >Delete Item</Button> */}
                 </div>
            )
