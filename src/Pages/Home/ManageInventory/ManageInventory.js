@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import './MangeInventory.css'
 
 const ManageInventory = () => {
     const [products, setProducts] = useState([]);
@@ -31,21 +33,23 @@ const ManageInventory = () => {
         }
     }
     return (
-        <div>
-        <h2>items: {products.length}</h2>
-        <div>
+        <div className='container'>
+       
+        <div className='manage-container'>
         {
-            products.map(product =><div key={product._id}>
-                <img style={{width:'200px'}} src={product.picture} alt="" />
+            products.map(product =>
+                <div key={product._id} className='products mb-3 pb-5 rounded-3 text-center shadow-sm'>
+                <img className='img-fluid' style={{width:'200px'}} src={product.picture} alt="" />
                 <h3>{product.name}</h3>
                 <h5>{product.supplierName}</h5>
-                <p>{product.price}</p>
+                <h5>Price: ${product.price}</h5>
                 <p>{product.description}</p>
-                <button onClick={() => handleUserDelete(product._id)} >Delete</button>
-            </div>)
+                <Button  variant="danger " onClick={() => handleUserDelete(product._id)} >Delete Item</Button>
+                </div>
+           )
         }
         </div>
-        <Link to='/addnew'> <button>Add new item</button></Link>
+        <Link to='/addnew'> <Button className="fixed-bottom mx-5 fs-5 w-25 d-block mx-auto" variant="success ">Add new item</Button></Link>
 
     </div>
     );
