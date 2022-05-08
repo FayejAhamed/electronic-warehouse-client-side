@@ -39,21 +39,26 @@ const AddNewItem = () => {
 
    
     return (
-        <div className='container bg-dark py-5 w-50 mx-auto text-white my-5 rounded' style={{ height: '400px' }}>
+        <div className='container bg-dark py-5 w-50 mx-auto text-white my-5 rounded'>
 
             <form onSubmit={handlePlaceOrder} >
                
                 <br />
                 <br />
-                <input className='w-100 mb-2' type="text" name='name' placeholder='Products Name' required />
-                <input className='w-100 mb-2' type="number" name='price' placeholder='price' required />
-                <input className='w-100 mb-2' type="text" name='supplierName' placeholder='Supplier Name' required />
-                <input className='w-100 mb-2' type="number" name='quantity' placeholder='Quantity' required />
-                <input className='w-100 mb-2' type="text" name='description' placeholder='Product Description' required />
+                <input className='w-50 mb-2 px-5 mx-auto d-block' type="text" name='name' placeholder='Products Name' required />
                 <br />
-                <input className='w-100 mb-2' type="text" name='picture' placeholder='image URL' required />
+                <input className='w-50 mb-2 px-5 mx-auto d-block' type="number" name='price' placeholder='price' required />
                 <br />
-                <input className='btn btn-primary' type="submit" value="Place Order" />
+                <input className='w-50 mb-2 px-5 mx-auto d-block' type="text" name='supplierName' placeholder='Supplier Name' required />
+                <br />
+                <input className='w-50 mb-2 px-5 mx-auto d-block' type="text" name='quantity' placeholder='Quantity' required />
+                <br />
+                <input className='w-50 mb-2 px-5 mx-auto d-block'  type="text" name='description' placeholder='Product Description' required />
+                <br />
+                <input className='w-50 mb-2 px-5 mx-auto d-block' type="text" name='picture' placeholder='image URL' required />
+                <br />
+                <input className='btn btn-primary d-block mx-auto w-25' type="submit" value="Add Your Product" />
+                <br /><br />
             </form>
 
             

@@ -13,14 +13,13 @@ const InventoryItems = () => {
             })
     }, [])
     return (
-        <div>
-            <h2>items: {products.length}</h2>
+        <div className='container shadow-sm p-3 my-5'>
             <div className='products-container'>
             {
                 products.slice(0, 6).map(product =><Products key={product._id} product={product}></Products>)
             }
             </div>
-          <Link to='/manage'> <button> Manage Inventories</button></Link>
+          <Link className='text-decoration-none' to='/manage'> <button  className='btn btn-info fs-3 d-block mx-auto text-white '> Manage Inventories</button></Link>
         </div>
     );
 };

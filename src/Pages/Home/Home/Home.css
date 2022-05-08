@@ -1,0 +1,9 @@
+@media screen and (max-width: 980px){
+   .home{
+       
+    
+        grid-gap: 0;
+        padding: 0;
+        margin: 0;
+    }
+}

@@ -76,15 +76,16 @@ const Update = () => {
             <h5>price: ${updateProduct?.price}</h5> <p className='px-3 py-2'>{updateProduct?.description}</p>
             <p>Quantity: {updateProduct?.quantity}</p>
             <p>sold: {updateProduct?.sold}</p>
-            <button onClick={()=>handleDelivery()}>Delivery</button>
+           <div className='d-flex justify-content-center'><p className='px-4 mx-3'> <button className='btn btn-info px-3' onClick={()=>handleDelivery()}>Delivery</button></p>
             <form onSubmit={handleIncreaseQuantity}>
+               
                 <input type="number" name="number" placeholder='add more' required />
                 <br />
                
-                <input type="submit" value="Restock" />
+                <input type="submit" className='btn btn-primary mt-2' value="Restock" />
             </form>
-            <Link to='/manage'> <button> Manage Inventories</button></Link>
-           
+            <Link bg-white to='/manage'> <button className='btn btn-success mx-3'> Manage Inventories</button></Link>
+           </div>
             
         </Card>
     );
